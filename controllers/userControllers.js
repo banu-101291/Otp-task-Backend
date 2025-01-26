@@ -24,7 +24,7 @@ exports.userregister = async (req, res) => {
         const presuer = await users.findOne({ email: email });
 
         if (presuer) {
-            res.status(400).json({ error: "This User Allready exist in our db" })
+            res.status(400).json({ error: "This User Already exist in our db" })
         } else {
             const userregister = new users({
                 fname, email, password
