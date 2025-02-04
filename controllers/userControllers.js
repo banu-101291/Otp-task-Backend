@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 
 
 // email config
-const tarnsporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL,
@@ -76,7 +76,7 @@ exports.userOtpSend = async (req, res) => {
                 }
 
 
-                tarnsporter.sendMail(mailOptions, (error, info) => {
+                transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
                         console.log("error", error);
                         res.status(400).json({ error: "email not send" })
@@ -100,7 +100,7 @@ exports.userOtpSend = async (req, res) => {
                     text: `OTP:- ${OTP}`
                 }
 
-                tarnsporter.sendMail(mailOptions, (error, info) => {
+                transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
                         console.log("error", error);
                         res.status(400).json({ error: "email not send" })
